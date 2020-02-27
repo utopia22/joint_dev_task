@@ -32,8 +32,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  newsports = sports.compact
-  p newsports
+  p sports.compact!
 
 end
 
@@ -51,7 +50,7 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-  numbers2 = numbers1.map { |n| n * 10 }
+  p numbers2 = numbers1.map { |n| n * 10 }
 
 end
 
