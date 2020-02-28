@@ -58,6 +58,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
+  p array.map(&:to_i)
 
 end
 
@@ -67,21 +68,27 @@ def q8
   # 以下に回答を記載
 
   # 以下は変更しないで下さい
-  p programming_languages
-  p upper_case_programming_languages
+  p programming_languages.collect { |s| s.capitalize }
+  p upper_case_programming_languages.collect { |s| s.upcase }
 end
 
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.each.with_index(1) do |name, i|
+  puts "会員No.#{i} #{name}さん"
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+  if sports.include?%w(うに)
+    put "好物です"
+  else
+    put "まぁまぁ好きです"
+  end  
 
 end
 
