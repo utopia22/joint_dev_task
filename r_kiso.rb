@@ -1,38 +1,38 @@
-array = ["1", "2", "3", "4", "5"]
 
-# 以下に回答を記載
-p array.map(&:to_i)
+  #sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
+  #arrays = sports.flatten.uniq
+
+  #sports.each.flatten.with_index(1) do |sport, i|
+  #puts "No.#{i} #{sport}"
+#end
+
+user_data = { name: "神里", age: 31, address: "埼玉" }
+update_data = { age: 32, address: "沖縄" }
+
+p user_data.merge(update_data)
+
+data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
+key = data.keys
+p key
 
 
-names = ["田中", "佐藤", "佐々木", "高橋"]
+users = [
+  { name: "satou", age: 22 },
+  { name: "yamada", age: 12 },
+  { name: "takahashi", age: 32 },
+  { name: "nakamura", age: 41 }
+]
 
-# 以下に回答を記載
-names.each.with_index(1) do |name, i|
-puts "会員No.#{i} #{name}さん"
-
+users.each do |user|
+  puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}です。"
 end
 
 
-array = ["1", "2", "3", "4", "5"]
-
-# 以下に回答を記載
-p array.map!(&:to_i)
-
-
-programming_languages = %w(ruby php python javascript)
-
-# 以下に回答を記載
-programming_languages.collect!(&:capitalize)
-upper_case_programming_languages = programming_languages.map(&:upcase)
-
-# 以下は変更しないで下さい
-p  programming_languages
-p upper_case_programming_languages
-
-
-foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
-
-# 以下に回答を記載
-foods.each do |food|
-  puts food.include?("うに") ? "好物です" : "まぁまぁ好きです"
+class Item
+  def initialize(name)
+    @self.name = name
+  end
 end
+
+book = Item.new(name: "ゼロ秒思考")
+puts book.name
