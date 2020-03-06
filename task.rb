@@ -135,6 +135,20 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  if data1.include?(:age)
+    puts "OK"
+  else
+    puts "NG"
+  end
+
+  if data2.include?(:age)
+    puts "OK"
+  else
+    puts "NG"
+  end
+
+  p data1
+  p data2 
 
 end
 

@@ -25,11 +25,22 @@ end
 data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
 data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
-  if data.include?(:age) == true
-    puts "OK"
-  else
-    puts "NG"
-  end
+# 以下に回答を記載
+if data1.include?(:age)
+  puts "OK"
+else
+  puts "NG"
+end
+
+if data2.include?(:age)
+  puts "OK"
+else
+  puts "NG"
+end
+
+p data1
+p data2
+
 
 
   user_data = { name: "神里", age: 31, address: "埼玉" }
@@ -37,3 +48,25 @@ data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
   p user_data.merge!(update_data)
+
+
+  class User
+
+  def initialize(name, age, gender)
+        @name = name
+        @age = age
+        @gender = gender
+
+      end
+
+      def info
+        puts "名前：#{name} 年齢：#{age} 性別：#{gender}"
+      end
+  end
+
+  user1 = User.new(name: "神里", age: 32, gender: "男")
+  user2 = User.new(name: "あじー", age: 32, gender: "男")
+
+  user1.info
+  puts "-------------"
+  user2.info
