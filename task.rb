@@ -135,20 +135,8 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  if data1.include?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
-
-  if data2.include?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
-
-  p data1
-  p data2 
+  puts data1.include?(:age)? "OK" : "NG"
+  puts data2.include?(:age)? "OK" : "NG"
 
 end
 
@@ -169,6 +157,31 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  attr_accessor :name
+  attr_accessor :age
+  attr_accessor :gender
+  attr_accessor :admin
+
+  def initialize(name:, age:, gender:,admin:)
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.admin = admin
+
+  end
+
+      def info
+        if self.admin == true
+          self.admin = "有り"
+        else
+          self.admin = "無し"
+        end
+
+        puts "名前：#{self.name}"
+        puts " 年齢：#{self.age}"
+        puts " 性別：#{self.gender}"
+        puts "管理者権限：#{self.admin}"
+      end
 
 end
 

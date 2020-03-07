@@ -22,10 +22,12 @@ sports.flatten.uniq.each.with_index(1) do |sport, i|
   puts "No#{i} #{sport}"
 end
 
+=begin
 data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
 data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
 # 以下に回答を記載
+
 if data1.include?(:age)
   puts "OK"
 else
@@ -40,33 +42,12 @@ end
 
 p data1
 p data2
+=end
 
 
+data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
+data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
-  user_data = { name: "神里", age: 31, address: "埼玉" }
-  update_data = { age: 32, address: "沖縄" }
-
-  # 以下に回答を記載
-  p user_data.merge!(update_data)
-
-
-  class User
-
-  def initialize(name, age, gender)
-        @name = name
-        @age = age
-        @gender = gender
-
-      end
-
-      def info
-        puts "名前：#{name} 年齢：#{age} 性別：#{gender}"
-      end
-  end
-
-  user1 = User.new(name: "神里", age: 32, gender: "男")
-  user2 = User.new(name: "あじー", age: 32, gender: "男")
-
-  user1.info
-  puts "-------------"
-  user2.info
+# 以下に回答を記載
+puts data1.include?(:age)? "OK" : "NG"
+puts data2.include?(:age)? "OK" : "NG"
