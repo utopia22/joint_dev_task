@@ -1,53 +1,77 @@
+data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
+data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
-users = [
-    { name: "satou", age: 22 },
-    { name: "yamada", age: 12 },
-    { name: "takahashi", age: 32 },
-    { name: "nakamura", age: 41 }
-  ]
+# 以下に回答を記載
+puts data1.include?(:age) ? "OK" : "NG"
+puts data2.include?(:age) ? "OK" : "NG"
 
+class UserQ17
   # 以下に回答を記載
-  users.each do |user|
-    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}です。"
+  attr_accessor :name
+  attr_accessor :age
+  attr_accessor :gender
+  attr_accessor :admin
+
+  def initialize(name:, age:, gender:,admin:)
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.admin = admin
+
   end
 
+      def info
+        if self.admin == true
+          self.admin = "有り"
+        else
+          self.admin = "無し"
+        end
 
-data = { user: { name: "satou", age: 33 } }
-p data[:user][:name]
+        puts "名前：#{self.name}"
+        puts " 年齢：#{self.age}"
+        puts " 性別：#{self.gender}"
+        puts "管理者権限：#{self.admin}"
+      end
 
-sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
-
-# 以下に回答を記載
-sports.flatten.uniq.each.with_index(1) do |sport, i|
-  puts "No#{i} #{sport}"
 end
+
+
+  # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
+  user1 = UserQ17.new(name: "神里", age: 32, gender: "男", admin: true)
+  user2 = UserQ17.new(name: "あじー", age: 32, gender: "男", admin: false)
+
+  user1.info
+  puts "-------------"
+  user2.info
+
 
 =begin
-data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
-data2 = { name: "yamada", hobby: "baseball", role: "normal" }
+  class UserQ18
+    # 以下に回答を記載
 
-# 以下に回答を記載
+    attr_accessor :name
+    attr_accessor :age
 
-if data1.include?(:age)
-  puts "OK"
-else
-  puts "NG"
-end
+    def initialize(name:, age:)
+          @name = name
+          @age = age
+    end
 
-if data2.include?(:age)
-  puts "OK"
-else
-  puts "NG"
-end
 
-p data1
-p data2
+    def introduce
+      if  @age >= 30
+        "こんにちは，#{@name}と申します。宜しくお願いいたします。"
+      else
+        "はいさいまいど〜，#{@name}です！！！"
+      end
+
+  end
+
+  #def q18
+    # ここは変更しないで下さい
+    user1 = UserQ18.new(name: "あじー", age: 32)
+    user2 = UserQ18.new(name: "ゆたぼん", age: 10)
+
+    puts user1.introduce
+    puts user2.introduce
 =end
-
-
-data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
-data2 = { name: "yamada", hobby: "baseball", role: "normal" }
-
-# 以下に回答を記載
-puts data1.include?(:age)? "OK" : "NG"
-puts data2.include?(:age)? "OK" : "NG"
