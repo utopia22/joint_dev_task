@@ -1,36 +1,26 @@
-data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
-data2 = { name: "yamada", hobby: "baseball", role: "normal" }
-
-# 以下に回答を記載
-puts data1.include?(:age) ? "OK" : "NG"
-puts data2.include?(:age) ? "OK" : "NG"
-
 class UserQ17
   # 以下に回答を記載
-  attr_accessor :name
-  attr_accessor :age
-  attr_accessor :gender
-  attr_accessor :admin
-
-  def initialize(name:, age:, gender:,admin:)
-        self.name = name
-        self.age = age
-        self.gender = gender
-        self.admin = admin
+  def initialize(**param)
+        @name = param[:name]
+        @age = param[:age]
+        @gender = param[:gender]
+        @admin = param[:admin]
 
   end
 
       def info
-        if self.admin == true
-          self.admin = "有り"
+        if @admin == true
+          @admin = "有り"
         else
-          self.admin = "無し"
+          @admin = "無し"
         end
 
-        puts "名前：#{self.name}"
-        puts " 年齢：#{self.age}"
-        puts " 性別：#{self.gender}"
-        puts "管理者権限：#{self.admin}"
+        puts <<~EOS
+        名前：#{@name}
+        年齢：#{@age}
+        性別：#{@gender}
+        管理者権限：#{@admin}
+        EOS
       end
 
 end
@@ -43,35 +33,3 @@ end
   user1.info
   puts "-------------"
   user2.info
-
-
-=begin
-  class UserQ18
-    # 以下に回答を記載
-
-    attr_accessor :name
-    attr_accessor :age
-
-    def initialize(name:, age:)
-          @name = name
-          @age = age
-    end
-
-
-    def introduce
-      if  @age >= 30
-        "こんにちは，#{@name}と申します。宜しくお願いいたします。"
-      else
-        "はいさいまいど〜，#{@name}です！！！"
-      end
-
-  end
-
-  #def q18
-    # ここは変更しないで下さい
-    user1 = UserQ18.new(name: "あじー", age: 32)
-    user2 = UserQ18.new(name: "ゆたぼん", age: 10)
-
-    puts user1.introduce
-    puts user2.introduce
-=end
