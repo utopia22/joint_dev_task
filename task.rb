@@ -165,20 +165,17 @@ class UserQ17
 
   end
 
-      def info
-        if @admin == true
-          @admin = "有り"
-        else
-          @admin = "無し"
-        end
+  def info
+    $admin = @admin ? "有り" : "無し"
 
-        puts <<~EOS
-        名前：#{@name}
-        年齢：#{@age}
-        性別：#{@gender}
-        管理者権限：#{@admin}
-        EOS
-      end
+    puts <<~EOS
+    名前：#{@name}
+    年齢：#{@age}
+    性別：#{@gender}
+    管理者権限 ：#{$admin}
+    EOS
+
+  end
 
 end
 
@@ -192,12 +189,25 @@ def q17
   user2.info
 end
 
-class UserQ18
+
   # 以下に回答を記載
+class UserQ18
+
+  def initialize(params)
+    @name = params[:name]
+    @age = params[:age]
+
+  end
+
+  def introduce
+     @age > 30 ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜，#{@name}です！！！"
+  end
 
 end
 
 def q18
+
+
   # ここは変更しないで下さい
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
@@ -208,9 +218,9 @@ end
 
 class Item
   # 以下を修正して下さい
-
-  def initialize(name)
-    @name = name
+  attr_accessor :name
+  def initialize(**params)
+    @name = params[:name]
   end
 end
 
