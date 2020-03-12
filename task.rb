@@ -157,7 +157,7 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(**param)
+  def initialize(param)
         @name = param[:name]
         @age = param[:age]
         @gender = param[:gender]
@@ -166,13 +166,13 @@ class UserQ17
   end
 
   def info
-    $admin = @admin ? "有り" : "無し"
+    admin = @admin ? "有り" : "無し"
 
     puts <<~EOS
     名前：#{@name}
     年齢：#{@age}
     性別：#{@gender}
-    管理者権限 ：#{$admin}
+    管理者権限 ：#{admin}
     EOS
 
   end
@@ -193,7 +193,7 @@ end
   # 以下に回答を記載
 class UserQ18
 
-  def initialize(params)
+  def initialize(**params)
     @name = params[:name]
     @age = params[:age]
 
@@ -218,7 +218,7 @@ end
 
 class Item
   # 以下を修正して下さい
-  attr_accessor :name
+  attr_reader :name
   def initialize(**params)
     @name = params[:name]
   end
@@ -232,17 +232,28 @@ end
 
 class UserQ20
   # 以下に回答を記載
-
+  def initialize(**params)
+    @name = param[:name]
+    @age = param[:age]
 end
 
 class Zoo
   # 以下に回答を記載
+  def info_entry_fee(user)
+          yen = user.age
+      if  user.age <= 0 && user.age >=5
+        "たまさんの入場料金は 0 円です。"
+      end
+
+
+
 
 end
 
 
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
+  #年齢区分は，幼児(0〜5歳)，子供(6〜12歳)，成人(13〜64歳)，シニア(65〜120歳)
   zoo = Zoo.new(name: "旭山動物園", entry_fee: { infant: 0, children: 400, adult: 800, senior: 500 })
 
   users = [
@@ -256,3 +267,8 @@ def q20
     zoo.info_entry_fee(user)
   end
 end
+
+#たまさんの入場料金は 0 円です。
+#ゆたぼんさんの入場料金は 400 円です。
+#あじーさんの入場料金は 800 円です。
+#ぎんさんの入場料金は 500 円です。
