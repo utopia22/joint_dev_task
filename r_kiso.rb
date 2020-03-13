@@ -20,7 +20,7 @@ class Zoo
  end
 
   def info_entry_fee(user)
-       yen = user.age
+       
       if user.age >= 0 && user.age <=5
         puts "#{user.name}さんの入場料金は #{@infant}円です。"
       elsif user.age >= 6 &&user.age <=12
