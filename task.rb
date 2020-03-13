@@ -219,8 +219,8 @@ end
 class Item
   # 以下を修正して下さい
   attr_reader :name
-  def initialize(**params)
-    @name = params[:name]
+  def initialize(name:)
+    @name = name
   end
 end
 
@@ -232,24 +232,40 @@ end
 
 class UserQ20
   # 以下に回答を記載
-  def initialize(**params)
-    @name = param[:name]
-    @age = param[:age]
+  attr_reader :name, :age
+ def initialize(**params)
+   @name = params[:name]
+   @age = params[:age]
+end
+
 end
 
 class Zoo
   # 以下に回答を記載
+  attr_reader :name, :entry_fee
+ def initialize(**params)
+   @infant = params[:entry_fee][:infant]
+   @children = params[:entry_fee][:children]
+   @adult = params[:entry_fee][:adult]
+   @senior = params[:entry_fee][:senior]
+
+ end
+
   def info_entry_fee(user)
-          yen = user.age
-      if  user.age <= 0 && user.age >=5
-        "たまさんの入場料金は 0 円です。"
+       yen = user.age
+      if user.age >= 0 && user.age <=5
+        puts "#{user.name}さんの入場料金は #{@infant}円です。"
+      elsif user.age >= 6 &&user.age <=12
+        puts "#{user.name}さんの入場料金は #{@children}円です。"
+      elsif user.age >= 13 && user.age <=64
+        puts "#{user.name}さんの入場料金は #{@adult}円です。"
+      else user.age >= 65 && user.age <=120
+        puts "#{user.name}さんの入場料金は #{@senior}円です。"
       end
 
+   end
 
-
-
-end
-
+   end
 
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
