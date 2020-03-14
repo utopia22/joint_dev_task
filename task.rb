@@ -157,7 +157,7 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(param)
+  def initialize(**param)
         @name = param[:name]
         @age = param[:age]
         @gender = param[:gender]
@@ -251,21 +251,23 @@ class Zoo
 
  end
 
-  def info_entry_fee(user)
-       
-      if user.age >= 0 && user.age <=5
-        puts "#{user.name}さんの入場料金は #{@infant}円です。"
-      elsif user.age >= 6 &&user.age <=12
-        puts "#{user.name}さんの入場料金は #{@children}円です。"
-      elsif user.age >= 13 && user.age <=64
-        puts "#{user.name}さんの入場料金は #{@adult}円です。"
-      else user.age >= 65 && user.age <=120
-        puts "#{user.name}さんの入場料金は #{@senior}円です。"
-      end
+ def info_entry_fee(user)
 
-   end
+   yen = case user.age
 
-   end
+     when (0..5)
+       @infant
+     when (6..12)
+       @children
+     when (13..64)
+       @adult
+     when (65..120)
+       @senior
+     end
+     puts "#{user.name}さんの入場料金は #{yen}円です。"
+  end
+
+  end
 
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
